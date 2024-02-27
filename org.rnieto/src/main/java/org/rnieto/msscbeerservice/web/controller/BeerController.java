@@ -3,8 +3,10 @@ package org.rnieto.msscbeerservice.web.controller;
 import org.rnieto.msscbeerservice.web.model.BeerDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
@@ -19,13 +21,13 @@ public class BeerController {
     }
 
     @PostMapping
-    public ResponseEntity<BeerDTO> saveNewBeer(@RequestBody BeerDTO beerDTO) {
+    public ResponseEntity<BeerDTO> saveNewBeer(@Validated @RequestBody BeerDTO beerDTO) {
         //todo implement get entity
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping("/{beerId}")
-    public ResponseEntity<BeerDTO> saveUpdatedBeer(@PathVariable("beerId")UUID beerId, @RequestBody BeerDTO beerDTO) {
+    public ResponseEntity<BeerDTO> saveUpdatedBeer(@PathVariable("beerId")UUID beerId, @Validated @RequestBody BeerDTO beerDTO) {
         //todo implement get entity
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
